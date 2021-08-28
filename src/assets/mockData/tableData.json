@@ -1,0 +1,6 @@
+{
+    "tableData":[
+            {"id": 1, "name": "Neha", "lastname":"Jain", "email": "nehajainsurana@gmail.com","gender":2, "age": 25},
+            {"id": 2, "name": "Simi","lastname":"Jain",  "email": "nehajainsurana@gmail.com","gender":2, "age": 25}
+    ]
+}

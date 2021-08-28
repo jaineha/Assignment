@@ -1,0 +1,59 @@
+<mat-card class="newstudentData">
+    <div class="row header">
+        <mat-label class="col-md-7 label">{{studentData.value}} student Details</mat-label>
+        <div class="col-md-4">
+            <img mat-button mat-dialog-close src="assets\icon\close.svg" class="closePopup">
+        </div>
+    </div>
+    <img src="assets\icon\line.svg">
+    <div class="newactionForm">
+        <div class="studentForm">
+            <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+                <div class="row">
+                    <div class="col-md-5">
+                        <mat-label class="col-md-5 sublabel">First Name<span class="alertMessage">*</span></mat-label>
+                        <input matInput class="col-md-11" placeholder="First Name" formControlName="name">
+                        <small class="text-danger" *ngIf="!form.get('name').valid && form.get('name').touched">Please
+                            enter first name</small>
+                    </div>
+
+                    <div class="col-md-5">
+                        <mat-label class="col-md-5 sublabel">Last Name<span class="alertMessage">*</span></mat-label>
+                        <input matInput class="col-md-11" placeholder="Last Name" formControlName="lastname">
+                        <small class="text-danger"
+                            *ngIf="!form.get('lastname').valid && form.get('lastname').touched">Please enter last
+                            name</small>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <mat-label class="col-md-3 sublabel">Email<span class="alertMessage">*</span></mat-label>
+                        <input matInput class="col-md-11" placeholder="Emailaddress" formControlName="email">
+                        <small class="text-danger" *ngIf="!form.get('email').valid && form.get('email').touched">Please
+                            enter email</small>
+                    </div>
+                    <div class="col-md-5">
+                        <mat-label class="col-md-3 sublabel"> Age </mat-label>
+                        <input matInput type="number" class="col-md-11" formControlName="age" placeholder="Age">
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class=" col-md-7">
+                        <mat-label class="col-md-2 sublabel"> Gender </mat-label>
+                        <mat-radio-group class="col-md-4" formControlName="gender">
+                            <mat-radio-button *ngFor="let genders of genderData" [value]="genders.Id">
+                                {{genders.Value}}
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                </div>
+
+                <mat-card class="submitButton">
+                    <button id="submit" mat-stroked-button color="primary" class="mat-primary" [disabled]="!form.valid"
+                        type="submit">SUBMIT</button>
+                </mat-card>
+            </form>
+        </div>
+    </div>
+</mat-card>
